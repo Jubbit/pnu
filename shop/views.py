@@ -1,6 +1,6 @@
 # from django.views.generic import ListView
 from django.shortcuts import render
-from .models import Item
+from .models import Item, Shop
 
 
 # item_list = ListView.as_view(model=Item)
@@ -19,4 +19,16 @@ def item_detail(request, pk):
     item = Item.objects.get(pk=pk)  # 즉시 DB로부터 Fetch
     return render(request, 'shop/item_detail.html', {
         'item': item,
+    })
+
+def shop_list(request):
+    qs = Shop.objects.all()
+    return render(request, 'shop/shop_list.html', {
+        'shop_list' : qs,
+    })
+
+def shop_detail(request, pk):
+    shop = Shop.objects.get(pk=pk)
+    return render(request, 'shop/shop_detail.html', {
+        'shop' : shop,
     })
