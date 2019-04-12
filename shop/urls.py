@@ -6,5 +6,4 @@ app_name = 'shop'
 urlpatterns = [
     path('', item_list),
     path('<int:pk>/', item_detail),
-    #int형태를 받아서 views-item_detail 함수의 pk에 던져준다.
 ]
